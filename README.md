@@ -2,6 +2,10 @@
 
 This is a simple boilerplate that allows you to quickly set up a Magda instance - the idea is that you can fork this config, commit changes but keep merging in master in order to stay up to date.
 
+## CUSTOM CONFIG
+
+My instructions for custom configuration and features (why I forked this repo) are here: [https://github.com/jlphillipsphd/magda-config/blob/master/custom-setup.md](https://github.com/jlphillipsphd/magda-config/blob/master/custom-setup.md)
+
 ## ⚠️ Warning: Compatibility Issues  ⚠️
 
 We have upgraded our Terraform module to work with Magda v0.0.57 or later (using Helm3 Terraform Provier).

@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: localhost-redirect
+spec:
+  entryPoints: # We listen to requests coming from ports 80 and 443
+    - web
+  routes:
+    - match: Host(`localhost`)
+      kind: Rule
+      services:
+        - name: gateway # Requests will be forwarded to this service
+          port: 80
+      middlewares:
+        - name: https-redirect

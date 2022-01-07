@@ -18,7 +18,7 @@ global:
   ## The external URL of the installation, e.g. "https://search.data.gov.au".
   ## This is used in a number of places, including linking back to the site
   ## from emails, creating a absolute sitemap URL for robots.txt, etc.
-  externalUrl: https://example.com
+  externalUrl: https://localhost
   
   ## How to handle rolling updates during a deployment. If set to 0, kubernetes
   ## will happily take down pods while it replaces them (useful for dev setups).
@@ -452,8 +452,8 @@ magda:
       ## Authentication Plugins
       # See https://github.com/magda-io/magda/blob/master/docs/docs/authentication-plugin-spec.md
       authPlugins:
-      - key: ckan
-        baseUrl: http://magda-auth-ckan
+      - key: "google"
+        baseUrl: http://magda-auth-google
 
       ## Client ids to use for OAuth authentication (We still have a few existing auth providers not converted to Authentication Plugins yet)
       # auth:
@@ -489,7 +489,7 @@ magda:
       enableAuthEndpoint: true
 
       ## Redirect HTTP urls to HTTPs urls
-      enableHttpsRedirection: false
+      enableHttpsRedirection: true
 
       ## Turn on HTTP basic authentication - this uses secrets created by the create-secret script
       enableWebAccessControl: false
@@ -603,6 +603,9 @@ magda-auth-ckan:
     name: "Data.gov.au"
     loginFormExtraInfoHeading: "Register"
     loginFormExtraInfoContent: "To register a new [data.gov.au](https://data.gov.au/) account, [click here](https://data.gov.au/data/user/register)"
+
+magda-auth-google:
+  googleClientId: "your-oauth2-client-id-here"
 
 ## Other potential connectors you might want to deploy
 # connector-act:

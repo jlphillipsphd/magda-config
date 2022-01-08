@@ -83,7 +83,6 @@ Add as a dependency following documentation from [https://github.com/magda-io/ma
 * Note that the secret key will be added to a k8s secret below.
 * Be sure to add an "Authorized redirect URIs" on the GCP console: [https://localhost/auth/login/plugin/google/return](https://localhost/auth/login/plugin/google/return)
 * Replace the ckan with google in the authPlugins section of the gateway config (see below)
-* 
 
 ### Merge these edits
 ```
@@ -137,7 +136,7 @@ All required secrets have been successfully created!
 ### Configure role binding
 Enables the ability to trigger connector jobs from the admin-api? Just in case really...
 ```
-kubectl apply -f role-binding.yaml
+kubectl -n magda apply -f role-binding.yaml
 ```
 
 # DEPLOY!
@@ -161,8 +160,8 @@ kubectl -n magda apply -f selfsigned-cert.yaml
 kubectl -n magda apply -f ingress-traefik-https.yaml
 ```
 
-## Enable HTTP->HTTPS redirection
-Create a namespace-scoped redirect middleware and deploy the ingress route for HTTP->HTTPS redirection.
+## Enable HTTP>HTTPS redirection
+Create a namespace-scoped redirect middleware and deploy the ingress route for HTTP>HTTPS redirection.
 ```
 kubectl -n magda apply -f middleware-https-redirect.yaml
 kubectl -n magda apply -f ingress-traefik-https-redirect.yaml

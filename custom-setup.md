@@ -17,6 +17,7 @@ You will need the following (command-line) tools installed:
 * k3d
 * kubectl 
 * npm (for secrets creator)
+* yarn (optional; to generate API keys)
 
 
 # Make K3D Cluster
@@ -169,3 +170,37 @@ kubectl -n magda apply -f ingress-traefik-https-redirect.yaml
 # Check it out!
 
 Visit: [https://localhost/](https://localhost/)
+
+# Create an Admin User
+
+Look up the DB password:
+
+```
+kubectl get secrets db-passwords -o yaml -n magda | grep " authorization-db:" | awk '{print $2}' | base64 -d
+```
+
+Set up a connection to the database:
+```
+kubectl port-forward combined-db-0 5432 -n magda
+```
+
+Install the admin tool:
+```
+sudo npm install --global @magda/acs-cmd
+```
+
+Make **someone** an admin:
+```
+acs-cmd list users
+acs-cmd admin set someone-user-id-from-list-above
+```
+
+Generate API key:
+```
+git clone https://github.com/magda-io/magda.git
+cd magda
+TO-DO
+
+```
+
+

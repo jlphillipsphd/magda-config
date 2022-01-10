@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: magda-cert
+spec:
+  dnsNames:
+    - magda.prism-rol.org
+  commonName: magda.prism-rol.org
+  secretName: magda-tls
+  issuerRef:
+    name: letsencrypt-issuer
+    kind: ClusterIssuer

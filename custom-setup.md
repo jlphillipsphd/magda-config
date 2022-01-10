@@ -21,10 +21,9 @@ You will need the following (command-line) tools installed:
 
 
 # Make K3D Cluster
-I will be using HTTP (80) and HTTPS (443) on `localhost`. If you don't have the ability to use these ports (other services already running on them), you could check the external IP of the traefik load-balancer once the cluster has started and then add an entry in `/etc/hosts` to point to that IP address. (You will need to change `localhost` in all sections below accordingly.
-
+I will be using HTTP (80) and HTTPS (443) on `k3d-cluster`. You should check the external IP of the traefik load-balancer once the cluster has started and then add an entry in `/etc/hosts` to point to that IP address.
 ```
-k3d cluster create -p 80:80@server:0 -p 443:443@server:0
+k3d cluster create
 ```
 
 ## Fork then clone the magda-config repo:
@@ -87,7 +86,7 @@ Add as a dependency following documentation from [https://github.com/magda-io/ma
 ### Merge these edits
 ```
 global:
-  externalUrl: https://localhost
+  externalUrl: https://k3d-cluster
 gateway:
   authPlugins:
   - key: "google"
@@ -168,7 +167,7 @@ kubectl -n magda apply -f ingress-traefik-https-redirect.yaml
 ```
 # Check it out!
 
-Visit: [https://localhost/](https://localhost/)
+Visit: [https://k3d-cluster/](https://k3d-cluster/)
 
 # Create an Admin User
 

@@ -1,12 +1,12 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: localhost-redirect
+  name: k3d-cluster-redirect
 spec:
   entryPoints: # We listen to requests coming from ports 80 and 443
     - web
   routes:
-    - match: Host(`localhost`)
+    - match: Host(`k3d-cluster`)
       kind: Rule
       services:
         - name: gateway # Requests will be forwarded to this service

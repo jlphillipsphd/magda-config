@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: localhost
+  name: k3d-cluster
 spec:
   dnsNames:
-    - localhost
-  secretName: localhost
+    - k3d-cluster
+  secretName: k3d-cluster
   issuerRef:
     name: selfsigned
     kind: ClusterIssuer

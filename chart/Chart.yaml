@@ -5,7 +5,7 @@ version: "0.0.59"
 kubeVersion: ">= 1.14.0-0"
 dependencies:
   - name: magda
-    version: 0.0.59
+    version: 1.1.0
     repository: https://charts.magda.io
 
   ## Ckan Authentication Plugin Config
@@ -23,13 +23,13 @@ dependencies:
 
   ## Data.gov.au connector to provide some initial data. Remove this if you
   ## don't want any data.gov.au connector
-  - name: magda-ckan-connector
-    version: 0.0.57-0
-    alias: connector-dga
-    repository: https://charts.magda.io
-    tags:
-      - connectors
-      - connector-dga
+  #- name: magda-ckan-connector
+  #  version: 0.0.57-0
+  #  alias: connector-dga
+  #  repository: https://charts.magda.io
+  #  tags:
+  #    - connectors
+  #    - connector-dga
 
   ## If you want to add your own services to Magda (e.g. your own minion),
   ## This is a good place to do it

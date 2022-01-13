@@ -21,7 +21,7 @@ You will need the following (command-line) tools installed:
 
 
 # Make K3D Cluster
-I will be using HTTP (80) and HTTPS (443) on `k3d-cluster`. You should check the external IP of the traefik load-balancer once the cluster has started and then add an entry in `/etc/hosts` to point to that IP address.
+I will be using HTTP (80) and HTTPS (443) on `k3d.localhost.org`. You should check the external IP of the traefik load-balancer once the cluster has started and then add an entry in `/etc/hosts` to point to that IP address.
 ```
 k3d cluster create
 ```
@@ -167,7 +167,7 @@ kubectl -n magda apply -f ingress-traefik-https-redirect.yaml
 ```
 # Check it out!
 
-Visit: [https://k3d-cluster/](https://k3d-cluster/)
+Visit: [https://k3d.localhost.org/](https://k3d.localhost.org/)
 
 # Create an Admin User
 

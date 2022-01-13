@@ -4,7 +4,7 @@ metadata:
   name: k3d-cluster
 spec:
   dnsNames:
-    - k3d-cluster
+    - k3d.localhost.org
   secretName: k3d-cluster
   issuerRef:
     name: selfsigned

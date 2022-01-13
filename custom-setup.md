@@ -189,8 +189,12 @@ sudo npm install --global @magda/acs-cmd
 
 Make **someone** an admin:
 ```
-acs-cmd list users
-acs-cmd admin set someone-user-id-from-list-above
+# First we get the password for the database
+kubectl get secrets db-passwords -o yaml -n magda | grep " authorization-db:" | awk '{print $2}' | base64 -d
+
+# Now we can use it (copy-paste)
+POSTGRES_PASSWORD="yourpassword" POSTGRES_USER="client" acs-cmd list users
+POSTGRES_PASSWORD="yourpassword" POSTGRES_USER="client" acs-cmd admin set someone-user-id-from-list-above
 ```
 
 Generate API key:
